@@ -29,12 +29,13 @@ def convert_pred(pred):
     if pred == 0:
         return "Adelie"
     elif pred == 1:
-        return "Chinstrap"
-    else:
         return "Gentoo"
+    else:
+        return "Chinstrap"
 
 
 def predict_data(data, model):
     data = pp.transform_data(data)
     pred = predict(model, data)
-    return pred, convert_pred(pred)
+    pred_proba = model.predict_proba(data)
+    return pred, convert_pred(pred), pred_proba

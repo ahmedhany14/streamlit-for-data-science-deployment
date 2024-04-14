@@ -55,10 +55,15 @@ st.subheader('Class labels and their corresponding index number')
 st.write(peng_data['species'].unique())
 
 model = ml.model(x_processed, y_processed)
-predition, converted_predition = ml.predict_data(X_test, model)
+predition, converted_predition, propab_prediction = ml.predict_data(X_test, model)
 
 st.write('Prediction')
 st.write(predition)
 
-st.write('converted predition')
+st.write('Prediction Probability')
+st.write(propab_prediction)
+
+st.write('final predition result')
 st.write(converted_predition)
+
+
